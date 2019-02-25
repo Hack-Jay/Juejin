@@ -1,0 +1,145 @@
+Html Webpack Plugin:
+<pre>
+  Error: Child compilation failed:
+  Module build failed (from ./node_modules/babel-loader/lib/index.js):
+  SyntaxError: D:\code\react\Juejin\src\index.html: Unexpected token (1:0)
+  > 1 | <!DOCTYPE html>
+      | ^
+    2 | <html lang="en">
+    3 | <head>
+    4 |  <meta charset="UTF-8">
+  
+  - index.js:3831 Object.raise
+    [Juejin]/[@babel]/parser/lib/index.js:3831:17
+  
+  - index.js:5143 Object.unexpected
+    [Juejin]/[@babel]/parser/lib/index.js:5143:16
+  
+  - index.js:6283 Object.parseExprAtom
+    [Juejin]/[@babel]/parser/lib/index.js:6283:20
+  
+  - index.js:3552 Object.parseExprAtom
+    [Juejin]/[@babel]/parser/lib/index.js:3552:20
+  
+  - index.js:5862 Object.parseExprSubscripts
+    [Juejin]/[@babel]/parser/lib/index.js:5862:23
+  
+  - index.js:5842 Object.parseMaybeUnary
+    [Juejin]/[@babel]/parser/lib/index.js:5842:21
+  
+  - index.js:5729 Object.parseExprOps
+    [Juejin]/[@babel]/parser/lib/index.js:5729:23
+  
+  - index.js:5702 Object.parseMaybeConditional
+    [Juejin]/[@babel]/parser/lib/index.js:5702:23
+  
+  - index.js:5647 Object.parseMaybeAssign
+    [Juejin]/[@babel]/parser/lib/index.js:5647:21
+  
+  - index.js:5595 Object.parseExpression
+    [Juejin]/[@babel]/parser/lib/index.js:5595:23
+  
+  - index.js:7378 Object.parseStatementContent
+    [Juejin]/[@babel]/parser/lib/index.js:7378:23
+  
+  - index.js:7243 Object.parseStatement
+    [Juejin]/[@babel]/parser/lib/index.js:7243:17
+  
+  - index.js:7810 Object.parseBlockOrModuleBlockBody
+    [Juejin]/[@babel]/parser/lib/index.js:7810:25
+  
+  - index.js:7797 Object.parseBlockBody
+    [Juejin]/[@babel]/parser/lib/index.js:7797:10
+  
+  - index.js:7181 Object.parseTopLevel
+    [Juejin]/[@babel]/parser/lib/index.js:7181:10
+  
+  - index.js:8658 Object.parse
+    [Juejin]/[@babel]/parser/lib/index.js:8658:17
+  
+  - index.js:10658 parse
+    [Juejin]/[@babel]/parser/lib/index.js:10658:38
+  
+  - normalize-file.js:170 parser
+    [Juejin]/[@babel]/core/lib/transformation/normalize-file.js:170:34
+  
+  - normalize-file.js:138 normalizeFile
+    [Juejin]/[@babel]/core/lib/transformation/normalize-file.js:138:11
+  
+  - index.js:44 runSync
+    [Juejin]/[@babel]/core/lib/transformation/index.js:44:43
+  
+  - index.js:35 runAsync
+    [Juejin]/[@babel]/core/lib/transformation/index.js:35:14
+  
+  - transform.js:34 process.nextTick
+    [Juejin]/[@babel]/core/lib/transform.js:34:34
+  
+  
+  - SyntaxError: D:\code\react\Juejin\src\index.html: Unexpected token (1:0)
+  
+  - > 1 | <!DOCTYPE html>
+  
+  -     | ^
+  
+  -   2 | <html lang="en">
+  
+  -   3 | <head>
+  
+  -   4 |  <meta charset="UTF-8">
+  
+  - compiler.js:79 childCompiler.runAsChild
+    [Juejin]/[html-webpack-plugin]/lib/compiler.js:79:16
+  
+  - Compiler.js:306 compile
+    [Juejin]/[webpack]/lib/Compiler.js:306:11
+  
+  - Compiler.js:630 hooks.afterCompile.callAsync.err
+    [Juejin]/[webpack]/lib/Compiler.js:630:14
+  
+  
+  - Hook.js:154 AsyncSeriesHook.lazyCompileHook
+    [Juejin]/[tapable]/lib/Hook.js:154:20
+  
+  - Compiler.js:627 compilation.seal.err
+    [Juejin]/[webpack]/lib/Compiler.js:627:30
+  
+  
+  - Hook.js:154 AsyncSeriesHook.lazyCompileHook
+    [Juejin]/[tapable]/lib/Hook.js:154:20
+  
+  - Compilation.js:1325 hooks.optimizeAssets.callAsync.err
+    [Juejin]/[webpack]/lib/Compilation.js:1325:35
+  
+  
+  - Hook.js:154 AsyncSeriesHook.lazyCompileHook
+    [Juejin]/[tapable]/lib/Hook.js:154:20
+  
+  - Compilation.js:1316 hooks.optimizeChunkAssets.callAsync.err
+    [Juejin]/[webpack]/lib/Compilation.js:1316:32
+  
+  
+  - Hook.js:154 AsyncSeriesHook.lazyCompileHook
+    [Juejin]/[tapable]/lib/Hook.js:154:20
+  
+  - Compilation.js:1311 hooks.additionalAssets.callAsync.err
+    [Juejin]/[webpack]/lib/Compilation.js:1311:36
+  
+  
+  - Hook.js:154 AsyncSeriesHook.lazyCompileHook
+    [Juejin]/[tapable]/lib/Hook.js:154:20
+  
+  - Compilation.js:1307 hooks.optimizeTree.callAsync.err
+    [Juejin]/[webpack]/lib/Compilation.js:1307:32
+  
+  
+  - Hook.js:154 AsyncSeriesHook.lazyCompileHook
+    [Juejin]/[tapable]/lib/Hook.js:154:20
+  
+  - Compilation.js:1244 Compilation.seal
+    [Juejin]/[webpack]/lib/Compilation.js:1244:27
+  
+  - Compiler.js:624 hooks.make.callAsync.err
+    [Juejin]/[webpack]/lib/Compiler.js:624:17
+  
+</pre><script type="text/javascript" src="/dist/bundle.js"></script>

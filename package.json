@@ -6,7 +6,7 @@
   "author": "Hack-Jay <735059024@qq.com>",
   "license": "MIT",
   "scripts": {
-    "dev": "cross-env NODE_ENV=development webpack --config build/webpack.dev.config.js"
+    "dev": "cross-env NODE_ENV=development webpack-dev-server --config build/webpack.dev.config.js"
   },
   "devDependencies": {
     "@babel/core": "^7.3.3",
