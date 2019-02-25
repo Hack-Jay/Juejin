@@ -1,4 +1,5 @@
 const path = require('path');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
   mode: 'development',
@@ -12,24 +13,58 @@ module.exports = {
   },
   module: {
     rules: [{
-      test: /\.(js|jsx)$/,
-      include: [
-        path.resolve(__dirname, '../src')
-      ],
-      exclude: [
-        path.resolve(__dirname, 'node_modules')
-      ],
-      loader: 'babel-loader',
-      query: {
-        presets: [
-          ["@babel/env", {
-            "targets": {
-              "browsers": "last 2 chrome versions"
+        test: /\.(js|jsx)$/,
+        include: [
+          path.resolve(__dirname, '../src')
+        ],
+        exclude: [
+          path.resolve(__dirname, 'node_modules')
+        ],
+        loader: 'babel-loader',
+        query: {
+          presets: [
+            ["@babel/env", {
+              "targets": {
+                "browsers": "last 2 chrome versions"
+              }
+            }]
+          ]
+        }
+      },
+      {
+        test: /\.css$/,
+        use: [
+          MiniCssExtractPlugin.loader, // replace ExtractTextPlugin.extract({..})
+          "css-loader"
+        ]
+      },
+      {
+        test: /\.(png|jpg|gif)/,
+        use: [{
+          loader: 'url-loader',
+          options: {
+            limit: 500000
+          }
+        }]
+      },
+      {
+        test: /\.less$/,
+        use: [{
+            loader: "style-loader"
+          },
+          {
+            loader: "css-loader"
+          },
+          {
+            loader: "less-loader",
+            options: {
+              strictMath: true,
+              noIeCompat: true
             }
-          }]
+          }
         ]
       }
-    }]
+    ]
   },
   resolve: {
     extensions: ['.json', '.js', '.jsx']
