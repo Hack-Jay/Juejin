@@ -32,8 +32,8 @@ class Header extends React.PureComponent {
             <img src="https://b-gold-cdn.xitu.io/v3/static/img/logo.a7995ad.svg" alt="logo" />
           </a>
 					<ul className="nav-list">
-						{this.state.list.map((item) => (
-							<li>
+						{this.state.list.map((item, index) => (
+							<li key={index}>
 								<a>{item.title}</a>
 							</li>
 						))}
