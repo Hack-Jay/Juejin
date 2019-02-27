@@ -26,20 +26,23 @@ class Header extends React.PureComponent {
 	}
 	render() {
 		return (
-			<div className="main-header">
-				<div className="container">
-					<a className="logo">
-            <img src="https://b-gold-cdn.xitu.io/v3/static/img/logo.a7995ad.svg" alt="logo" />
-          </a>
-					<ul className="nav-list">
-						{this.state.list.map((item, index) => (
-							<li key={index}>
-								<a>{item.title}</a>
-							</li>
-						))}
-					</ul>
+			<React.Fragment>
+				<div className="main-header">
+					<div className="container">
+						<a className="logo">
+							<img src="https://b-gold-cdn.xitu.io/v3/static/img/logo.a7995ad.svg" alt="logo" />
+						</a>
+						<ul className="nav-list">
+							{this.state.list.map((item, index) => (
+								<li key={index}>
+									<a>{item.title}</a>
+								</li>
+							))}
+						</ul>
+					</div>
 				</div>
-			</div>
+				{this.props.children}
+			</React.Fragment>
 		);
 	}
 }

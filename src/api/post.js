@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const getPost = () => {
-	return axios.get('https://timeline-merger-ms.juejin.im/v1/get_entry_by_rank', {
+	return axios.get('/timeline/get_entry_by_rank', {
 		params: {
 			src: 'web',
 			uid: '5c22dcf1f265da613d7c1a9f',
@@ -12,7 +12,10 @@ const getPost = () => {
 			recomment: 1
 		}
 	}).then(res => {
-		console.log('post success...')
+		if(res.data.m === 'ok') {
+			console.log('post success...', res.data.d.entrylist)
+			return res.data.d.entrylist
+		}
 	}).catch(err => console.error(err))
 }
 export default getPost

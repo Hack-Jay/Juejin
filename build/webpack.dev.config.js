@@ -43,6 +43,16 @@ if (isDev) {
 			historyApiFallback: {
 				index: '/dist/index.html'
 			},
+			 proxy: {
+			 	'/timeline': {
+			 		target: 'https://timeline-merger-ms.juejin.im/v1',
+			 		pathRewrite: {
+			 			'^/timeline': ''
+			 		},
+			 		changeOrigin: true, // target是域名的话，需要这个参数，
+			 		secure: false, // 设置支持https协议的代理
+			 	}
+			 }
 		}
 	config.plugins.push(new webpack.HotModuleReplacementPlugin())
 }

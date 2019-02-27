@@ -1,19 +1,18 @@
 import React from 'react';
-import Header from '../../components/Header';
 import Nav from './nav';
+import MainContainer from '../../components/mainContainer'
 import getPost  from '../../api/post'
 import './index.less'
 class Home extends React.Component {
 	componentDidMount() {
-		getPost().then(res => console.log(res.data))
+		getPost().then(res => console.log(res))
 	}
 	render() {
 		return (
-			<div>
-				<Header />
+			<React.Fragment>
 				<Nav />
-				{/* <div class="main-container">2131</div> */}
-			</div>
+				<MainContainer />
+			</React.Fragment>
 		);
 	}
 }
