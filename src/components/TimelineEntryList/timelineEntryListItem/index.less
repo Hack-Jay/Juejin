@@ -1,0 +1,96 @@
+.entry-link {
+	cursor: pointer;
+	font-size: 0.5rem;
+
+	.entry-box {
+		padding: 0.8rem 1.5rem;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+
+		.meta-row {
+			color: #b2bac2;
+
+			.meta-list {
+
+				display: flex;
+				align-items: baseline;
+				white-space: nowrap;
+
+				li::after {
+					content: "·";
+					margin: 0 .4em;
+					color: #b2bac2;
+				}
+
+				.item-hot {
+					color: red;
+					font-weight: 500;
+				}
+
+				.item-post {
+					font-weight: 500;
+					color: #b71ed7;
+				}
+
+				.item-username {}
+			}
+		}
+
+		.title-row {
+			margin: .5rem 0 1rem;
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+
+			.title {
+				font-size: 1.1rem;
+				font-weight: 600;
+				line-height: 1.2;
+				color: #2e3135;
+			}
+
+			.title:hover {
+				text-decoration: underline;
+			}
+		}
+
+		.action-row {
+			ul {
+				display: flex;
+
+				li {
+					padding: 0;
+				}
+
+				.like-btn,
+				.comment-btn {
+					border: 1px solid #edeeef;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					position: relative;
+					padding: 0 .8rem;
+					height: 1.6rem;
+					font-size: 0.8rem;
+					line-height: 1;
+					white-space: nowrap;
+					color: #b2bac2;
+					border-radius: 1px;
+
+					.like-text {
+						margin-left: 0.1rem;
+						font-weight: 700;
+						vertical-align: text-top;
+					}
+
+					.comment-text {
+						margin-left: 0.1rem;
+						font-weight: 700;
+						vertical-align: super
+					}
+				}
+			}
+		}
+	}
+}
