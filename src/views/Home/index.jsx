@@ -1,17 +1,29 @@
 import React from 'react';
 import Nav from './nav';
-import MainContainer from '../../components/mainContainer'
-import getPost  from '../../api/post'
-import './index.less'
+import TimelineEntryList from '../../components/TimelineEntryList'
+import getPost from '../../api/post';
+import './index.less';
 class Home extends React.Component {
+	state = {
+		timelineEntryList: []
+	};
+
 	componentDidMount() {
-		getPost().then(res => console.log(res))
+		getPost().then((res) => {
+			this.state.timelineEntryList = res
+			console.log('this.state:', this.state.timelineEntryList)
+		});
 	}
 	render() {
+		const { timelineEntryList } = this.state
+		console.log('this.state111:', this.state.timelineEntryList)
+
 		return (
 			<React.Fragment>
 				<Nav />
-				<MainContainer />
+				<div className="main-container">
+					<TimelineEntryList list={timelineEntryList} />
+				</div>
 			</React.Fragment>
 		);
 	}
