@@ -12,12 +12,12 @@ class TimelineEntryList extends React.Component {
 		const { list } = this.props
 		console.log('父组件list', list, this.props)
 		return (
-			<div className="timeline-entry-list">
+			<div className="left-container">
 				<div className="entry-list-container">
 					<ul>
 						{/* li代表一条数据 */}
 						{list && list.map((item, index) => (
-							<li class="item" key={index}>
+							<li className="item" key={index}>
 								<TimelineEntryListItem item={item}/>
 							</li>
 						))}

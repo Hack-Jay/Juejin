@@ -8,13 +8,13 @@ const TimelineEntryListItem = ({item}) => (
 				<ul className="meta-list">
 					<li className="item-hot">热</li>
 					<li className="item-post">专栏</li>
-					<li className="item-username">zzzzzzz</li>
+					<li className="item-username">{item.user.username}</li>
 					<li className="item-time">2个小时前</li>
 					<li className="item-tag">{item.category.name}</li>
 				</ul>
 			</div>
 			<div className="title-row">
-				<a class="title">{item.title}</a>
+				<a className="title">{item.title}</a>
 			</div>
 			<div className="action-row">
 				<ul>

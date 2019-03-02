@@ -1,6 +1,6 @@
 import React from 'react';
 import Nav from './nav';
-import TimelineEntryList from '../../components/TimelineEntryList'
+import TimelineEntryList from '../../components/TimelineEntryList';
 import getPost from '../../api/post';
 import './index.less';
 class Home extends React.Component {
@@ -10,13 +10,13 @@ class Home extends React.Component {
 
 	componentDidMount() {
 		getPost().then((res) => {
-			this.state.timelineEntryList = res
-			// console.log('子组件 didmount this.state:', this.state.timelineEntryList)
+			this.setState({
+				timelineEntryList: res
+			});
 		});
 	}
 	render() {
-		const { timelineEntryList } = this.state
-		// console.log('子组件render this.state111:', this.state.timelineEntryList)
+		const { timelineEntryList } = this.state;
 
 		return (
 			<React.Fragment>

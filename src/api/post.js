@@ -13,7 +13,7 @@ const getPost = () => {
 		}
 	}).then(res => {
 		if(res.data.m === 'ok') {
-			console.log('post success...', res.data.d.entrylist)
+			console.log('get timeline success...', res.data.d.entrylist)
 			return res.data.d.entrylist
 		}
 	}).catch(err => console.error(err))

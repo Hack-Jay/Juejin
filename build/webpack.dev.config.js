@@ -12,7 +12,8 @@ const config = merge(baseConfig, {
 	entry: path.join(__dirname, '../src', 'index'),
 	plugins: [
 		new HtmlPlugin({
-			template: path.join(__dirname, "../src/index.html")
+			template: path.join(__dirname, "../src/index.html"),
+			// favicon: '../src/favicon.ico' //favicon.ico文件路径
 		}),
 		 new MiniCssExtractPlugin({
       // Options similar to the same options in webpackOptions.output
