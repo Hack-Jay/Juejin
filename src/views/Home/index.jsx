@@ -11,12 +11,12 @@ class Home extends React.Component {
 	componentDidMount() {
 		getPost().then((res) => {
 			this.state.timelineEntryList = res
-			console.log('this.state:', this.state.timelineEntryList)
+			// console.log('子组件 didmount this.state:', this.state.timelineEntryList)
 		});
 	}
 	render() {
 		const { timelineEntryList } = this.state
-		console.log('this.state111:', this.state.timelineEntryList)
+		// console.log('子组件render this.state111:', this.state.timelineEntryList)
 
 		return (
 			<React.Fragment>
