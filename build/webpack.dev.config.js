@@ -16,8 +16,6 @@ const config = merge(baseConfig, {
 			// favicon: '../src/favicon.ico' //favicon.ico文件路径
 		}),
 		 new MiniCssExtractPlugin({
-      // Options similar to the same options in webpackOptions.output
-      // both options are optional
       filename: "[name].css",
       chunkFilename: "[id].css"
     })
@@ -40,11 +38,17 @@ if (isDev) {
 				errors: true
 			},
 			hot: true,
-			publicPath: '/dist/',
+			// publicPath: 'dist',
 			historyApiFallback: {
 				index: '/dist/index.html'
 			},
-			 proxy: {
+			// historyApiFallback: true,
+			// historyApiFallback: {
+			// 	rewrites: [
+			// 		{ from: /.*/, to: path.posix.join('../dist/','index.html') },
+			// 	]
+			// },
+			proxy: {
 			 	'/timeline': {
 			 		target: 'https://timeline-merger-ms.juejin.im/v1',
 			 		pathRewrite: {
@@ -52,8 +56,16 @@ if (isDev) {
 			 		},
 			 		changeOrigin: true, // target是域名的话，需要这个参数，
 			 		secure: false, // 设置支持https协议的代理
-			 	}
-			 }
+				 },
+				 '/post': {
+					target: 'https://post-storage-api-ms.juejin.im/v1',
+					pathRewrite: {
+						'^/post': ''
+					},
+					changeOrigin: true,
+					secure: false
+				 }
+			}
 		}
 	config.plugins.push(new webpack.HotModuleReplacementPlugin())
 }

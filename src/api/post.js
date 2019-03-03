@@ -13,9 +13,27 @@ const getPost = () => {
 		}
 	}).then(res => {
 		if(res.data.m === 'ok') {
-			console.log('get timeline success...', res.data.d.entrylist)
+			// console.log('get timeline success...', res.data.d.entrylist)
 			return res.data.d.entrylist
 		}
 	}).catch(err => console.error(err))
 }
-export default getPost
+
+const getDetail = (id) => {
+	return axios.get('/post/getDetailData', {
+		params: {
+			uid: '5c22dcf1f265da613d7c1a9f',
+			device_id: '1551511796562',
+			token: 'eyJhY2Nlc3NfdG9rZW4iOiJiT1ZaNXJPSGN2bWFFOGJJIiwicmVmcmVzaF90b2tlbiI6InlOZjZPYWtaMnNiZm1nMWEiLCJ0b2tlbl90eXBlIjoibWFjIiwiZXhwaXJlX2luIjoyNTkyMDAwfQ==',
+			src: 'web',
+			type: 'entryView',
+			postId: id
+		}
+	}).then(res => {
+		if(res.data.m === 'ok') {
+			return res.data.d
+		}
+	}).catch(err => console.error(err))
+}
+
+export { getPost, getDetail }

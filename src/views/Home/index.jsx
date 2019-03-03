@@ -1,7 +1,7 @@
 import React from 'react';
 import Nav from './nav';
 import TimelineEntryList from '../../components/TimelineEntryList';
-import getPost from '../../api/post';
+import { getPost } from '../../api/post';
 import './index.less';
 class Home extends React.Component {
 	state = {

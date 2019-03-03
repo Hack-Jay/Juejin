@@ -2,7 +2,7 @@ import React from 'react';
 import './index.less'
 
 const TimelineEntryListItem = ({item}) => (
-	<a className="entry-link">
+	<div className="entry-link">
 		<div className="entry-box">
 			<div className="meta-row">
 				<ul className="meta-list">
@@ -33,7 +33,7 @@ const TimelineEntryListItem = ({item}) => (
 				</ul>
 			</div>
 		</div>
-	</a>
+	</div>
 );
 
 export default TimelineEntryListItem;
