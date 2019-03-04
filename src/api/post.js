@@ -19,14 +19,15 @@ const getPost = () => {
 	}).catch(err => console.error(err))
 }
 
-const getDetail = (id) => {
+// 详情页数据
+const getDetail = (id, isMark = true) => {
 	return axios.get('/post/getDetailData', {
 		params: {
 			uid: '5c22dcf1f265da613d7c1a9f',
 			device_id: '1551511796562',
 			token: 'eyJhY2Nlc3NfdG9rZW4iOiJiT1ZaNXJPSGN2bWFFOGJJIiwicmVmcmVzaF90b2tlbiI6InlOZjZPYWtaMnNiZm1nMWEiLCJ0b2tlbl90eXBlIjoibWFjIiwiZXhwaXJlX2luIjoyNTkyMDAwfQ==',
 			src: 'web',
-			type: 'entryView',
+			type: isMark ? 'entryView' : 'entry',
 			postId: id
 		}
 	}).then(res => {

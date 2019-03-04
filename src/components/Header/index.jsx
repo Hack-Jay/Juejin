@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink, Link } from 'react-router-dom'
 import './index.less';
 
 class Header extends React.PureComponent {
@@ -7,19 +8,24 @@ class Header extends React.PureComponent {
 		this.state = {
 			list: [
 				{
-					title: '首页'
+					title: '首页',
+					url: '/'
 				},
 				{
-					title: '动态'
+					title: '动态',
+					url: '/1'
 				},
 				{
-					title: '话题'
+					title: '话题',
+					url: '/2'
 				},
 				{
-					title: '小册'
+					title: '小册',
+					url: '/3'
 				},
 				{
-					title: '活动'
+					title: '活动',
+					url: '/4'
 				}
 			]
 		};
@@ -29,13 +35,13 @@ class Header extends React.PureComponent {
 			<React.Fragment>
 				<div className="main-header">
 					<div className="container">
-						<a className="logo">
+						<Link className="logo" to="/">
 							<img src="https://b-gold-cdn.xitu.io/v3/static/img/logo.a7995ad.svg" alt="logo" />
-						</a>
+						</Link>
 						<ul className="nav-list">
 							{this.state.list.map((item, index) => (
 								<li key={index}>
-									<a>{item.title}</a>
+									<NavLink to={item.url ? item.url : '/'} activeClassName="selected">{item.title}</NavLink>
 								</li>
 							))}
 						</ul>

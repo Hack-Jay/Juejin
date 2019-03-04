@@ -11,9 +11,25 @@ class Post extends React.Component {
 	componentDidMount() {
 		console.log('post this:', this)
 		const id = this.props.match.params.id
-		this.setState({
-			userInfo: this.props.location.query.data
-		})
+		const queryData = this.props.location.query
+		if(queryData) {
+			this.setState({
+				userInfo: this.props.location.query.data
+			})
+		} else {
+			getDetail(id, false).then(res => {
+				const { viewsCount, title, user, createdAt} = res
+				const userData = {
+					title,
+					viewsCount,
+					createdAt,
+					username: user.username,
+					avatarLarge: user.avatarLarge
+				}
+				this.setState({userInfo: userData})
+			})
+		}
+		
 		getDetail(id).then(res => this.setState({data: res}))
 	}
 	render() {

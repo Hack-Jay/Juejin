@@ -30,7 +30,7 @@ if (isDev) {
 			]
 		},
 		config.devServer = {
-			contentBase: path.join('../dist/'),
+			contentBase: path.resolve(__dirname,'../dist/'),
 			inline: true,
 			host: '0.0.0.0',
 			port: 8000,
@@ -38,7 +38,7 @@ if (isDev) {
 				errors: true
 			},
 			hot: true,
-			// publicPath: 'dist',
+			// publicPath: 'dist/',
 			historyApiFallback: {
 				index: '/dist/index.html'
 			},
