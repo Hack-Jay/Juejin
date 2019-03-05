@@ -1,24 +1,18 @@
 import { getPost } from '../../api/post'
 
 const TimeLineList = 'GETTIMELINELIST'
-const addTodo = 'ADDTODO'
 
 const initialState = {
 	timelineList: [],
 	num: 0
 }
 const addTimeLineList = (data) => {
-	console.log('action commming	');
 	return {
 		type: TimeLineList,
 		data
 	}
 }
-const addTodos = () => {
-	return {
-		type: addTodo,
-	}
-}
+
 function getTimeLineList() {
 	console.log('comming')
 	return dispatch => {
@@ -37,11 +31,7 @@ const timeLine = (state = initialState, action) => {
 				...state,
 				timelineList: action.data
 			}
-		case addTodo: 
-			return {
-				...state,
-				num: state.num + 1
-			}
+	
 		default:
 			return state
 	}
@@ -50,5 +40,4 @@ const timeLine = (state = initialState, action) => {
 export {
 	getTimeLineList,
 	timeLine,
-	addTodos
 }
