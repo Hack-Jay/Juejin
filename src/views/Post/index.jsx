@@ -29,7 +29,6 @@ class Post extends React.Component {
 				this.setState({userInfo: userData})
 			})
 		}
-		
 		getDetail(id).then(res => this.setState({data: res}))
 	}
 	render() {

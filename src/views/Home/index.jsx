@@ -1,32 +1,29 @@
 import React from 'react';
+import { connect } from 'react-redux'
+import { getTimeLineList } from '../../redux/Home'
 import Nav from './nav';
 import TimelineEntryList from '../../components/TimelineEntryList';
-import { getPost } from '../../api/post';
 import './index.less';
+@connect(
+	state => state.Home,
+	{ getTimeLineList }
+)
 class Home extends React.Component {
-	state = {
-		timelineEntryList: []
-	};
-
 	componentDidMount() {
-		getPost().then((res) => {
-			this.setState({
-				timelineEntryList: res
-			});
-		});
+		this.props.getTimeLineList()
 	}
 	render() {
-		const { timelineEntryList } = this.state;
+		const { timelineList } = this.props;
 
 		return (
 			<React.Fragment>
 				<Nav />
 				<div className="main-container">
-					<TimelineEntryList list={timelineEntryList} />
+					<TimelineEntryList list={timelineList} />
 				</div>
 			</React.Fragment>
 		);
 	}
 }
 
-export default Home;
+export default Home

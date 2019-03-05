@@ -1,6 +1,7 @@
 import axios from 'axios';
 
 const getPost = () => {
+	console.log('getPost request ......');
 	return axios.get('/timeline/get_entry_by_rank', {
 		params: {
 			src: 'web',
