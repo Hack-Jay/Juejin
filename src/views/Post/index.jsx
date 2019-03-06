@@ -1,7 +1,12 @@
 import React from 'react';
+import { connect } from 'react-redux'
+import { getPostDetail, getUserInfo } from '../../redux/Post'
 import PostDetail from '../../components/postDetail';
-import { getDetail } from '../../api/post';
 
+@connect(
+	state => state,
+	{ getPostDetail, getUserInfo }
+)
 class Post extends React.Component {
 	state = {
 		data: {},
@@ -9,35 +14,24 @@ class Post extends React.Component {
 	};
 
 	componentDidMount() {
-		console.log('post this:', this)
+		this.getDetail()
+	}
+
+	getDetail = () => {
 		const id = this.props.match.params.id
-		const queryData = this.props.location.query
-		if(queryData) {
-			this.setState({
-				userInfo: this.props.location.query.data
-			})
-		} else {
-			getDetail(id, false).then(res => {
-				const { viewsCount, title, user, createdAt} = res
-				const userData = {
-					title,
-					viewsCount,
-					createdAt,
-					username: user.username,
-					avatarLarge: user.avatarLarge
-				}
-				this.setState({userInfo: userData})
-			})
-		}
-		getDetail(id).then(res => this.setState({data: res}))
+		this.props.getUserInfo(id)
+		this.props.getPostDetail(id)
 	}
 	render() {
-		const { data, userInfo } = this.state
+		const { post } = this.props
+		const userInfo = {...post.info.user}
 		return (
 			<React.Fragment>
 				<div className="main-container">
 					<div className="left-container">
-						<PostDetail data={data} userInfo={userInfo} />
+					{
+						post && <PostDetail data={post} userInfo={userInfo} />
+					}
 					</div>
 				</div>
 			</React.Fragment>

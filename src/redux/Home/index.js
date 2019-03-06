@@ -2,10 +2,7 @@ import { getPost } from '../../api/post'
 
 const TimeLineList = 'GETTIMELINELIST'
 
-const initialState = {
-	timelineList: [],
-	num: 0
-}
+const initialState = []
 const addTimeLineList = (data) => {
 	return {
 		type: TimeLineList,
@@ -14,7 +11,6 @@ const addTimeLineList = (data) => {
 }
 
 function getTimeLineList() {
-	console.log('comming')
 	return dispatch => {
 		getPost().then(res=> {
 			dispatch(addTimeLineList(res))
@@ -27,10 +23,10 @@ function getTimeLineList() {
 const timeLine = (state = initialState, action) => {
 	switch (action.type) {
 		case TimeLineList:
-			return {
+			return [
 				...state,
-				timelineList: action.data
-			}
+				...action.data
+			]
 	
 		default:
 			return state

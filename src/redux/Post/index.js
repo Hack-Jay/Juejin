@@ -1,45 +1,67 @@
 import { getDetail } from '../../api/post'
 
-const DetailList = 'GETTIMELINELIST'
+const DetailList = 'POSTLIST'
+const DetailUserInfo = 'DETAILUSERINFO'
 
+// 存放当前文章详情
 const initialState = {
-	post: [],
+	postId: '',
+	info: {},
+	content: ''
 }
-const addTimeLineList = (data) => {
+const addPostList = (id, data) => {
 	return {
-		type: TimeLineList,
+		type: DetailList,
+		id,
 		data
 	}
 }
-function getTimeLineList() {
-	console.log('comming')
+
+const addPostUserInfo = (data) => {
+	return {
+		type: DetailUserInfo,
+		data
+	}
+}
+function getPostDetail(id) {
 	return dispatch => {
-		getPost().then(res=> {
-			dispatch(addTimeLineList(res))
+		getDetail(id).then(res=> {
+			dispatch(addPostList(id, res))
 		}).catch(err=> {
-			throw err
+			console.error(err)
 		})
 	}
 }
 
-const timeLine = (state = initialState, action) => {
+function getUserInfo(id) {
+	return dispatch => {
+		getDetail(id, false).then(res => {
+			dispatch(addPostUserInfo(res))
+		}).catch(err => console.error(err))
+	}
+}
+
+const post = (state = initialState, action) => {
 	switch (action.type) {
-		case TimeLineList:
+		case DetailList:
 			return {
 				...state,
-				timelineList: action.data
+				postId: action.id,
+				content: action.data.transcodeContent
 			}
-		case addTodo: 
+		case DetailUserInfo:
 			return {
 				...state,
-				num: state.num + 1
+				info: {...action.data}
 			}
+		
 		default:
 			return state
 	}
 }
 
 export {
-	getTimeLineList,
-	timeLine,
+	getPostDetail,
+	getUserInfo,
+	post,
 }

@@ -1,15 +1,8 @@
 import { combineReducers } from 'redux'
-import { timeLine as Home } from './Home'
-
-const user = (state={user: 'juejin'}, action) => {
-	switch (action.type) {
-		case 'LIST':
-			return {...state, ...action.data}
-		default:
-			return state;
-	}
-}
+import { timeLine } from './Home'
+import { post } from './Post'
 
 export default combineReducers({
-	Home
+	timeLine,
+	post
 })

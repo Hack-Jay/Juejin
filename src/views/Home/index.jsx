@@ -5,7 +5,7 @@ import Nav from './nav';
 import TimelineEntryList from '../../components/TimelineEntryList';
 import './index.less';
 @connect(
-	state => state.Home,
+	state => state,
 	{ getTimeLineList }
 )
 class Home extends React.Component {
@@ -13,13 +13,13 @@ class Home extends React.Component {
 		this.props.getTimeLineList()
 	}
 	render() {
-		const { timelineList } = this.props;
+		const { timeLine } = this.props;
 
 		return (
 			<React.Fragment>
 				<Nav />
 				<div className="main-container">
-					<TimelineEntryList list={timelineList} />
+					<TimelineEntryList list={timeLine} />
 				</div>
 			</React.Fragment>
 		);

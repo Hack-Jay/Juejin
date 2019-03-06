@@ -1,14 +1,7 @@
 import React from 'react';
-import ReactMarkdown from 'react-markdown/with-html';
-// import htmlParser from 'react-markdown/plugins/html-parser'
-
 import './index.less';
 
-// const parseHtml = htmlParser({
-//   isValidNode: node => node.type !== 'script',
-//   processingInstructions: [/* ... */]
-// })
-
+// question：数据嵌套多层拿不到， 如a.b.c.e
 const PostDetail = ({ data, userInfo }) => (
 	<div className="article-detail">
 		<div className="author-info-block">
@@ -16,16 +9,14 @@ const PostDetail = ({ data, userInfo }) => (
 			<div className="user-info">
 				<span className="user-name-text ellipsis">{userInfo.username}</span>
 				<div className="user-info-time">
-					<span className="user-info-createtime">{userInfo.createdAt}</span>
-					<span className="user-info-read">阅读 {userInfo.viewsCount}</span>
+					<span className="user-info-createtime">{data.info.createdAt}</span>
+					<span className="user-info-read">阅读 {data.info.viewsCount}</span>
 				</div>
 			</div>
 		</div>
-		<h1 className="article-title">{userInfo.title}</h1>
+		<h1 className="article-title">{data.info.title}</h1>
 		<div className="article-content">
-			{/* <ReactMarkdown source={data.transcodeContent} escapeHtml={false} /> */}
-			{/* <ReactMarkdown source={data.transcodeContent} escapeHtml={false} /> */}
-			<div dangerouslySetInnerHTML={{ __html: data.transcodeContent }} />
+			<div dangerouslySetInnerHTML={{ __html: data.content }} />
 		</div>
 	</div>
 );
