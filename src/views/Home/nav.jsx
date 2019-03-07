@@ -17,7 +17,7 @@ class Nav extends React.Component {
 					{
 						this.state.tabs.map((item, index) => <li key={index}>{item}</li>)
 					}
-			
+
 				</ul>
 			</nav>
 		)
