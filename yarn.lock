@@ -5131,7 +5131,7 @@ promise@^7.1.1:
   dependencies:
     asap "~2.0.3"
 
-prop-types@^15.6.1, prop-types@^15.6.2, prop-types@^15.7.2:
+prop-types@^15.5.10, prop-types@^15.6.1, prop-types@^15.6.2, prop-types@^15.7.2:
   version "15.7.2"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.7.2.tgz#52c41e75b8c87e72b9d9360e0206b99dcbffa6c5"
   integrity sha512-8QQikdH7//R2vurIJSutZ1smHYTcLpRWEOlHnzcWHmBYrOGUysKwSsrC89BCiFj3CbrfJ/nXFdJepOVrY1GCHQ==
@@ -5359,6 +5359,13 @@ react-router@^4.3.1:
     path-to-regexp "^1.7.0"
     prop-types "^15.6.1"
     warning "^4.0.1"
+
+react-virtual-list@^2.3.0:
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/react-virtual-list/-/react-virtual-list-2.3.0.tgz#84ebba7f954bafc4de435e4b29d69fdd371b9cda"
+  integrity sha1-hOu6f5VLr8TeQ15LKdaf3TcbnNo=
+  dependencies:
+    prop-types "^15.5.10"
 
 react@^16.8.3:
   version "16.8.3"
