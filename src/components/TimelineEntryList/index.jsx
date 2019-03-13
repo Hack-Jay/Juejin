@@ -2,6 +2,7 @@ import React from 'react';
 import * as PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom'
 import TimelineEntryListItem from './timelineEntryListItem';
+import VirtualList from '../../components/virtualList'
 import urlParse from '../../util'
 import './index.less';
 
@@ -32,7 +33,6 @@ class TimelineEntryList extends React.Component {
 			<div className="left-container">
 				<div className="entry-list-container">
 					<ul>
-						{/* li代表一条数据 */}
 						{list && list.map((item, index) => (
 							<li className="item" key={index} onClick={()=> this.toDetail(item)}>
 								<TimelineEntryListItem item={item}/>
