@@ -2,7 +2,6 @@ import React from 'react';
 import * as PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom'
 import TimelineEntryListItem from './timelineEntryListItem';
-import VirtualList from '../../components/virtualList'
 import urlParse from '../../util'
 import './index.less';
 

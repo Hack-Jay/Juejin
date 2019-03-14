@@ -34,7 +34,7 @@ const getMoreList = () => {
       before: getLastItem(timeLine)
     }
     getPost(data).then(res => {
-      console.log('res is ', res)
+      // console.log('res is ', res)
       dispatch(addTimeLineList(res))
     }).catch(err => console.error(err))
   }

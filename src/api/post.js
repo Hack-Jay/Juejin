@@ -1,7 +1,6 @@
 import axios from 'axios';
 
 const getPost = (data) => {
-	console.log('getPost request ......');
 	return axios.get('/timeline/get_entry_by_rank', {
 		params: {
       ...data,
@@ -15,7 +14,6 @@ const getPost = (data) => {
 		}
 	}).then(res => {
 		if(res.data.m === 'ok') {
-			// console.log('get timeline success...', res.data.d.entrylist)
 			return res.data.d.entrylist
 		}
 	}).catch(err => console.error(err))
