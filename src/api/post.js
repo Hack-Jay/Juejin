@@ -1,7 +1,8 @@
-import axios from 'axios';
+// import axios from 'axios';
+import instance from '../../config'
 
 const getPost = (data) => {
-	return axios.get('/timeline/get_entry_by_rank', {
+	return instance.get('/timeline/get_entry_by_rank', {
 		params: {
       ...data,
 			src: 'web',
@@ -21,7 +22,7 @@ const getPost = (data) => {
 
 // 详情页数据
 const getDetail = (id, isMark = true) => {
-	return axios.get('/post/getDetailData', {
+	return instance.get('/post/getDetailData', {
 		params: {
 			uid: '5c22dcf1f265da613d7c1a9f',
 			device_id: '1551511796562',
@@ -37,4 +38,19 @@ const getDetail = (id, isMark = true) => {
 	}).catch(err => console.error(err))
 }
 
-export { getPost, getDetail }
+// 获取评论
+const getComment = (objectId) => {
+  return instance.get(`/comment/entry/${objectId}`, {
+    params: {
+      rankType: "new",
+      createdAt: "",
+      pageSize: 6
+    }
+  }).then(res => {
+    if(res.data.m === 'success') {
+      return res.data.d
+    }
+  }).catch(err => console.error(err))
+}
+
+export { getPost, getDetail, getComment }

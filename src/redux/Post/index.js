@@ -5,7 +5,8 @@ const DetailUserInfo = 'DETAILUSERINFO'
 
 // 存放当前文章详情
 const initialState = {
-	postId: '',
+  postId: '',
+  objectId: '',
 	info: {},
 	content: ''
 }
@@ -46,15 +47,17 @@ const post = (state = initialState, action) => {
 		case DetailList:
 			return {
 				...state,
-				postId: action.id,
+        postId: action.id,
 				content: action.data.transcodeContent
 			}
-		case DetailUserInfo:
+    case DetailUserInfo:
+      console.log('DetailUserInfo', action.data)
 			return {
-				...state,
+        ...state,
+        objectId: action.data.objectId,
 				info: {...action.data}
 			}
-		
+
 		default:
 			return state
 	}

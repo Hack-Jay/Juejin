@@ -48,6 +48,11 @@ module.exports = {
         }]
       },
       {
+        test: /\.ico$/,
+        loader: "url-loader",
+        query: { mimetype: "image/x-icon" }
+      },
+      {
         test: /\.less$/,
         use: [{
             loader: "style-loader"
