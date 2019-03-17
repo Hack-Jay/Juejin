@@ -18,7 +18,7 @@ const config = merge(baseConfig, {
     }),
     // new FaviconsWebpackPlugin('../src/images/to-top.png'),
     new MiniCssExtractPlugin({
-       filename: "[name].css",
+      filename: "[name].css",
       chunkFilename: "[id].css"
     })
   ]
@@ -63,6 +63,14 @@ if (isDev) {
           target: 'https://post-storage-api-ms.juejin.im/v1',
           pathRewrite: {
             '^/post': ''
+          },
+          changeOrigin: true,
+          secure: false
+        },
+        '/comment': {
+          target: 'https://comment-wrapper-ms.juejin.im/v1/comments',
+          pathRewrite: {
+            '^/comment': ''
           },
           changeOrigin: true,
           secure: false

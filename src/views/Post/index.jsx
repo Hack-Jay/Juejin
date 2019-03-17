@@ -12,14 +12,18 @@ class Post extends React.Component {
 	};
 
 	componentDidMount() {
-		this.getDetail();
+    this.getDetail();
 	}
 
 	getDetail = () => {
-		const id = this.props.match.params.id;
+    const id = this.props.match.params.id;
 		this.props.getUserInfo(id);
-		this.props.getPostDetail(id);
-	};
+    this.props.getPostDetail(id);
+  };
+
+  getComment = () =>{
+    this.props.getDetailComment()
+  }
 	render() {
 		const { post } = this.props;
 		const userInfo = { ...post.info.user };

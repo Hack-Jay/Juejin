@@ -1,70 +1,106 @@
-import { getDetail } from '../../api/post'
+import {
+  getDetail,
+  getComment
+} from '../../api/post'
 
 const DetailList = 'POSTLIST'
 const DetailUserInfo = 'DETAILUSERINFO'
+const Comment = 'COMMENT'
 
 // 存放当前文章详情
 const initialState = {
   postId: '',
   objectId: '',
-	info: {},
-	content: ''
+  info: {},
+  content: '',
+  comment: {}
 }
+
 const addPostList = (id, data) => {
-	return {
-		type: DetailList,
-		id,
-		data
-	}
+  return {
+    type: DetailList,
+    id,
+    data
+  }
 }
 
 const addPostUserInfo = (data) => {
-	return {
-		type: DetailUserInfo,
-		data
-	}
-}
-function getPostDetail(id) {
-	return dispatch => {
-		getDetail(id).then(res=> {
-			dispatch(addPostList(id, res))
-		}).catch(err=> {
-			console.error(err)
-		})
-	}
+  return {
+    type: DetailUserInfo,
+    data
+  }
 }
 
-function getUserInfo(id) {
-	return dispatch => {
-		getDetail(id, false).then(res => {
-			dispatch(addPostUserInfo(res))
-		}).catch(err => console.error(err))
-	}
+const addComment = (data) => {
+  return {
+    type: Comment,
+    data
+  }
 }
+
+function getPostDetail(id) {
+  return dispatch => {
+    getDetail(id).then(res => {
+      dispatch(addPostList(id, res))
+    })
+  }
+}
+
+// 获取详情页用户信息后获取评论
+function getUserInfo(id) {
+  return (dispatch,getState) => {
+    getDetail(id, false).then(res => {
+      dispatch(addPostUserInfo(res))
+    }).then(res => {
+      console.log('res ' , res, getState())
+      const objectId = getState().post.objectId
+      return getComment(objectId)
+    }).then(res => {
+        dispatch(addComment(res))
+    })
+  }
+}
+
+// function getDetailComment() {
+//   return (dispatch, getState) => {
+//     const objectId = getState().post.objectId
+//     console.log('objectId 11', getState())
+//     if(objectId) {
+//       getComment(objectId).then(res => {
+//         dispatch(addComment(res))
+//       }).catch(err => console.error(err))
+//     }
+//   }
+// }
 
 const post = (state = initialState, action) => {
-	switch (action.type) {
-		case DetailList:
-			return {
-				...state,
+  switch (action.type) {
+    case DetailList:
+      return {
+        ...state,
         postId: action.id,
-				content: action.data.transcodeContent
-			}
+        content: action.data.transcodeContent
+      }
     case DetailUserInfo:
-      console.log('DetailUserInfo', action.data)
-			return {
+      return {
         ...state,
         objectId: action.data.objectId,
-				info: {...action.data}
-			}
-
-		default:
-			return state
-	}
+        info: {
+          ...action.data
+        }
+      }
+    case Comment:
+      return {
+        ...state,
+        comment: action.data
+      }
+    default:
+      return state
+  }
 }
 
 export {
-	getPostDetail,
-	getUserInfo,
-	post,
+  getPostDetail,
+  getUserInfo,
+  post,
 }

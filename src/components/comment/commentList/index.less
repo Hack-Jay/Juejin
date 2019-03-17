@@ -1,0 +1,47 @@
+.comment-list {
+  margin: 1rem 1.666rem 0 4.1rem;
+  display: flex;
+  .list-avator {
+    img {
+      width: 2rem;
+      height: 2rem;
+      border-radius: 50%;
+    }
+  }
+  .list-user-info {
+    margin-left: 15px;
+    flex: 1 1 auto;
+    width: 0;
+    color: #333;
+    font-size: 14px;
+    div {
+      margin-bottom: 0.5rem;
+    }
+    .user-job {
+      color: #8a9aa9;
+      font-size: 0.8rem;
+      margin-left: 4px;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      max-width: 16rem;
+    }
+    .user-comment-time {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .user-time {
+        font-size: 0.8rem;
+        color: #8a9aa9;
+        cursor: default;
+      }
+      i {
+        margin-right: 10px;
+      }
+    }
+  }
+}
+i {
+  width: 16px;
+  height: 16px;
+}

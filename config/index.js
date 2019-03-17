@@ -1,7 +1,7 @@
 const axios = require('axios')
 
 const instance = axios.create({
-  timeout: 1000,
+  // timeout: 1000,
 });
 
 instance.interceptors.request.use(function (config) {

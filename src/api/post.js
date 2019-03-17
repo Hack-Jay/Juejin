@@ -40,6 +40,7 @@ const getDetail = (id, isMark = true) => {
 
 // 获取评论
 const getComment = (objectId) => {
+  console.log('object', objectId)
   return instance.get(`/comment/entry/${objectId}`, {
     params: {
       rankType: "new",
