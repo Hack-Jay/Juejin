@@ -64,7 +64,7 @@ class ScrollToBottom extends React.Component {
 				});
 			}
 			// 滑至底部加载更多
-			if (this.getScrollTop() + this.getWindowHeight() == this.getScrollHeight()) {
+			if ((this.getScrollTop() + this.getWindowHeight() == this.getScrollHeight()) && this.props.isLoadMore) {
 				this.props.getMoreList();
 			}
 		};

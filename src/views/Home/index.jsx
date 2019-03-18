@@ -21,7 +21,7 @@ class Home extends React.Component {
 				<Nav />
 				<div className="main-container">
 					<TimelineEntryList list={timeLine} />
-          <ScrollToBottom />
+          <ScrollToBottom isLoadMore={true} />
 				</div>
 			</React.Fragment>
 		);

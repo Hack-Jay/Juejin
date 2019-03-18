@@ -1,8 +1,8 @@
 import React from 'react'
 import "./index.less"
 
-const CommentListItem =  ({comment}) => {
-  const { updatedAt, userInfo } = comment
+const CommentListItem =  ({comment, child}) => {
+  const { updatedAt, userInfo, respUserInfo } = comment
   return (
     <div className="comment-list-item">
       <div className="list-avator">
@@ -14,6 +14,10 @@ const CommentListItem =  ({comment}) => {
           <span className="user-job">{ userInfo.jobTitle }️</span>
         </div>
         <div>
+          {
+            child ? <span className="resp-text">回复 <span className="resp-span-text">{respUserInfo.username}：</span></span> : null
+
+          }
           <span>{comment.content}</span>
         </div>
         <div className="user-comment-time">

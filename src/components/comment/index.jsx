@@ -13,13 +13,13 @@ const Comment = ({comment}) => {
       <InputComment />
       {/* 评论详情 */}
       {
-        comment && comment.comments && comment.comments.map(item => {
+        comment && comment.comments && comment.comments.map((item,index) => {
           return (
-            <div className="comment-list-content" key={item.id}>
+            <div className="comment-list-content" key={index}>
                <CommentListItem comment={item}/>
                {
-                item.topComment && item.topComment.map(topItem => (
-                  <div className="comment-child-list" key={item.id}>
+                item.topComment && item.topComment.map((topItem,Index) => (
+                  <div className="comment-child-list" key={Index}>
                   <CommentListItem comment={topItem} child={true} />
                  </div>
                  ))

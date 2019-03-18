@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { getPostDetail, getUserInfo } from '../../redux/Post';
 import PostDetail from '../../components/postDetail';
 import Comment from '../../components/comment';
+import ScrollToBottom from '../../components/common/scrollToBottom';
 
 @connect((state) => state, { getPostDetail, getUserInfo })
 class Post extends React.Component {
@@ -21,14 +22,10 @@ class Post extends React.Component {
     this.props.getPostDetail(id);
   };
 
-  // getComment = () =>{
-  //   this.props.getDetailComment()
-  // }
 	render() {
     const { post } = this.props;
     const { comment } = post
     const userInfo = { ...post.info.user };
-    console.log("comment is", comment, 'post', post)
 		return (
 			<React.Fragment>
 				<div className="main-container">
@@ -37,6 +34,7 @@ class Post extends React.Component {
             { comment && <Comment comment={comment} /> }
 					</div>
 				</div>
+        <ScrollToBottom />
 			</React.Fragment>
 		);
 	}
