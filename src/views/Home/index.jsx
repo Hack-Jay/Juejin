@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { getTimeLineList } from '../../redux/Home'
 import Nav from './nav';
 import TimelineEntryList from '../../components/TimelineEntryList';
-import ScrollToBottom from '../../components/scrollToBottom';
+import ScrollToBottom from '../../components/common/scrollToBottom';
 import './index.less';
 @connect(
 	state => state,

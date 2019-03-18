@@ -1,6 +1,6 @@
 import React from 'react';
 import { HashRouter as Router, Route, Switch, Redirect  } from 'react-router-dom';
-import Header from '../src/components/Header'
+import Header from '../src/components/common/Header'
 import Home from "./views/Home";
 import Post from './views/Post'
 import './style/normalize.css'

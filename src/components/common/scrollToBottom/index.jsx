@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { getMoreList } from '../../redux/Home';
+import { getMoreList } from '../../../redux/Home';
 
 import './index.less';
 
@@ -76,7 +76,7 @@ class ScrollToBottom extends React.Component {
 			<React.Fragment>
 				{show && (
 					<div className="suspension-panel">
-						<img src={require('../../images/to-top.png')} onClick={()=> window.scroll(0, 0)} />
+						<img src={require('../../../images/to-top.png')} onClick={()=> window.scroll(0, 0)} />
 					</div>
 				)}
 			</React.Fragment>

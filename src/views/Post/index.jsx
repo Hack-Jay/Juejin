@@ -21,18 +21,20 @@ class Post extends React.Component {
     this.props.getPostDetail(id);
   };
 
-  getComment = () =>{
-    this.props.getDetailComment()
-  }
+  // getComment = () =>{
+  //   this.props.getDetailComment()
+  // }
 	render() {
-		const { post } = this.props;
-		const userInfo = { ...post.info.user };
+    const { post } = this.props;
+    const { comment } = post
+    const userInfo = { ...post.info.user };
+    console.log("comment is", comment, 'post', post)
 		return (
 			<React.Fragment>
 				<div className="main-container">
 					<div className="left-container">
-						{post && <PostDetail data={post} userInfo={userInfo} />}
-						<Comment />
+            { post && <PostDetail data={post} userInfo={userInfo} /> }
+            { comment && <Comment comment={comment} /> }
 					</div>
 				</div>
 			</React.Fragment>
