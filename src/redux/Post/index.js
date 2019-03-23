@@ -61,17 +61,6 @@ function getUserInfo(id) {
   }
 }
 
-// function getDetailComment() {
-//   return (dispatch, getState) => {
-//     const objectId = getState().post.objectId
-//     console.log('objectId 11', getState())
-//     if(objectId) {
-//       getComment(objectId).then(res => {
-//         dispatch(addComment(res))
-//       }).catch(err => console.error(err))
-//     }
-//   }
-// }
 
 const post = (state = initialState, action) => {
   switch (action.type) {

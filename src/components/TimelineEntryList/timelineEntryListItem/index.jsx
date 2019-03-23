@@ -2,8 +2,8 @@ import React from 'react';
 import './index.less';
 
 const TimelineEntryListItem = ({ item }) => (
-	<a className="entry-link">
-		<a className="entry-box">
+	<div className="entry-link">
+		<div className="entry-box">
       <div className="flex-left-box">
         <div className="meta-row">
           <ul className="meta-list">
@@ -15,7 +15,7 @@ const TimelineEntryListItem = ({ item }) => (
           </ul>
         </div>
         <a className="title-row">
-          <a className="title">{item.title}</a>
+          <span className="title">{item.title}</span>
         </a>
         <div className="action-row">
           <ul>
@@ -39,8 +39,8 @@ const TimelineEntryListItem = ({ item }) => (
           <img src={item.screenshot} alt="" />
         </div>
       }
-		</a>
-	</a>
+		</div>
+	</div>
 );
 
 export default TimelineEntryListItem;

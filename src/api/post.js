@@ -6,9 +6,9 @@ const getPost = (data) => {
 		params: {
       ...data,
 			src: 'web',
-			uid: '5c22dcf1f265da613d7c1a9f',
-			device_id: '1550632931671',
-			token: 'eyJhY2Nlc3NfdG9rZW4iOiJ2QlRmTFA3MEVNT3NSOEE2IiwicmVmcmVzaF90b2tlbiI6IjBWWGpHeTVhOTVsYzdaTDIiLCJ0b2tlbl90eXBlIjoibWFjIiwiZXhwaXJlX2luIjoyNTkyMDAwfQ==',
+			uid: '59bb865a51882536d37f054c',
+			device_id: '1551751322906',
+			token: 'eyJhY2Nlc3NfdG9rZW4iOiJvbHFqVDlLY1BsZ0JUM3NOIiwicmVmcmVzaF90b2tlbiI6InlWM3Y5ZEZaOHB4M0szZzgiLCJ0b2tlbl90eXBlIjoibWFjIiwiZXhwaXJlX2luIjoyNTkyMDAwfQ==',
 			limit: 20,
 			category: 'all',
       recomment: 1,
@@ -24,9 +24,9 @@ const getPost = (data) => {
 const getDetail = (id, isMark = true) => {
 	return instance.get('/post/getDetailData', {
 		params: {
-			uid: '5c22dcf1f265da613d7c1a9f',
-			device_id: '1551511796562',
-			token: 'eyJhY2Nlc3NfdG9rZW4iOiJiT1ZaNXJPSGN2bWFFOGJJIiwicmVmcmVzaF90b2tlbiI6InlOZjZPYWtaMnNiZm1nMWEiLCJ0b2tlbl90eXBlIjoibWFjIiwiZXhwaXJlX2luIjoyNTkyMDAwfQ==',
+			uid: '59bb865a51882536d37f054c',
+			device_id: '1551751322906',
+			token: 'eyJhY2Nlc3NfdG9rZW4iOiJvbHFqVDlLY1BsZ0JUM3NOIiwicmVmcmVzaF90b2tlbiI6InlWM3Y5ZEZaOHB4M0szZzgiLCJ0b2tlbl90eXBlIjoibWFjIiwiZXhwaXJlX2luIjoyNTkyMDAwfQ==',
 			src: 'web',
 			type: isMark ? 'entryView' : 'entry',
 			postId: id

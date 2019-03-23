@@ -40,16 +40,10 @@ if (isDev) {
         errors: true
       },
       hot: true,
-      // publicPath: 'dist/',
       historyApiFallback: {
         index: '/dist/index.html'
       },
-      // historyApiFallback: true,
-      // historyApiFallback: {
-      // 	rewrites: [
-      // 		{ from: /.*/, to: path.posix.join('../dist/','index.html') },
-      // 	]
-      // },
+
       proxy: {
         '/timeline': {
           target: 'https://timeline-merger-ms.juejin.im/v1',
@@ -71,6 +65,14 @@ if (isDev) {
           target: 'https://comment-wrapper-ms.juejin.im/v1/comments',
           pathRewrite: {
             '^/comment': ''
+          },
+          changeOrigin: true,
+          secure: false
+        },
+        '/login': {
+          target: 'https://juejin.im/auth/type',
+          pathRewrite: {
+            '^/login': ''
           },
           changeOrigin: true,
           secure: false
