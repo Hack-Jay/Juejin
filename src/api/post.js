@@ -6,9 +6,9 @@ const getPost = (data) => {
 		params: {
       ...data,
 			src: 'web',
-			uid: '5c22dcf1f265da613d7c1a9f',
-			device_id: '1550632931671',
-			token: 'eyJhY2Nlc3NfdG9rZW4iOiJ2QlRmTFA3MEVNT3NSOEE2IiwicmVmcmVzaF90b2tlbiI6IjBWWGpHeTVhOTVsYzdaTDIiLCJ0b2tlbl90eXBlIjoibWFjIiwiZXhwaXJlX2luIjoyNTkyMDAwfQ==',
+			uid: '59bb865a51882536d37f054c',
+			device_id: '1553261281547',
+			token: 'eyJhY2Nlc3NfdG9rZW4iOiJEcTdIZ1dXYVBrZzJyd2syIiwicmVmcmVzaF90b2tlbiI6InlVS2RtakZBWVZTSzBVM04iLCJ0b2tlbl90eXBlIjoibWFjIiwiZXhwaXJlX2luIjoyNTkyMDAwfQ==',
 			limit: 20,
 			category: 'all',
       recomment: 1,

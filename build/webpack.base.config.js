@@ -20,7 +20,7 @@ module.exports = {
         exclude: [
           path.resolve(__dirname, 'node_modules')
         ],
-        loader: 'babel-loader',
+        loader: 'babel-loader?cacheDirectory',
         query: {
           presets: [
             ["@babel/env", {
@@ -35,7 +35,7 @@ module.exports = {
         test: /\.css$/,
         use: [
           MiniCssExtractPlugin.loader, // replace ExtractTextPlugin.extract({..})
-          "css-loader"
+          "css-loader?modules&localIdentName=[name]-[hash:base64:5]"
         ]
       },
       {
