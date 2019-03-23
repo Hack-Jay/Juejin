@@ -1,4 +1,5 @@
 import React from 'react';
+import * as PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { getMoreList } from '../../../redux/Home';
 
@@ -6,6 +7,9 @@ import './index.less';
 
 @connect(null, { getMoreList })
 class ScrollToBottom extends React.Component {
+  static propType = {
+    isLoadMore: PropTypes.bool
+  }
 	state = {
 		show: false
 	};
