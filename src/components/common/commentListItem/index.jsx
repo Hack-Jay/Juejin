@@ -26,7 +26,7 @@ const CommentListItem =  ({comment, child}) => {
           <div className="flex">
               <i className="iconfont left">&#xe60c;</i>
               <i className="iconfont">&#xe631;</i>
-              <span class="reply">回复</span>
+              <span className="reply">回复</span>
           </div>
         </div>
       </div>

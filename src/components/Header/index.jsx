@@ -52,7 +52,6 @@ class Header extends React.PureComponent {
 
 	showModal = () => {
     this.setState({ visible: true });
-    console.log('show', this.state.visible);
   };
 
   handleLogin(params) {
