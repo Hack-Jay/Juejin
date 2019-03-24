@@ -6,10 +6,34 @@ const instance = axios.create({
 
 instance.interceptors.request.use(function (config) {
   // Do something before request is sent
-  config.headers["X-Juejin-Uid"] = "59bb865a51882536d37f054c"
-  config.headers["X-Juejin-Token"] = "eyJhY2Nlc3NfdG9rZW4iOiJvbHFqVDlLY1BsZ0JUM3NOIiwicmVmcmVzaF90b2tlbiI6InlWM3Y5ZEZaOHB4M0szZzgiLCJ0b2tlbl90eXBlIjoibWFjIiwiZXhwaXJlX2luIjoyNTkyMDAwfQ=="
+
+  const token = localStorage.getItem('token') || ''
+  const clientId = localStorage.getItem('clientId') || ''
+  const userId = localStorage.getItem('userId') || ''
+  const paramsData = {
+    uid: userId,
+    device_id: clientId,
+    token,
+  }
+  // 有token时带上登录参数
+  let params = token ? { ...paramsData, src: 'web' } : { src: 'web' }
+  config.headers["X-Juejin-Uid"] = userId
+  config.headers["X-Juejin-Token"] = token
   config.headers["X-Juejin-Src"] = "web"
-  config.headers["X-Juejin-Client"] = "1551751322906"
+  config.headers["X-Juejin-Client"] = clientId
+
+  if(config.method == 'post') {
+    config.data = {
+      ...config.data,
+      ...params
+    }
+  }
+  if(config.method === 'get') {
+    config.params = {
+      ...params,
+      ...config.params
+    }
+  }
   return config;
 }, function (error) {
   // Do something with request error

@@ -1,9 +1,16 @@
 import React from 'react';
 import { NavLink, Link } from 'react-router-dom';
-import LoginHeader from '../../loginHeader';
-import LoginModal from '../../LoginModal';
+import { connect } from 'react-redux';
+import LoginHeader from '../loginHeader';
+import LoginModal from '../LoginModal';
+import { login } from '../../redux/User';
+
 import './index.less';
 
+@connect(
+  state => state.user,
+  {login}
+)
 class Header extends React.PureComponent {
 	constructor(props) {
 		super(props);
@@ -48,8 +55,22 @@ class Header extends React.PureComponent {
     console.log('show', this.state.visible);
   };
 
+  handleLogin(params) {
+    this.props.login(params)
+  }
+
+  renderUser = () => {
+    if(this.props.token) {
+      return <img className="user-avatar" src={this.props.user.avatarLarge} />
+    } else {
+      return <LoginHeader showModal={this.showModal}  />
+    }
+  }
+
 	render() {
-		const { visible } = this.state;
+    const { login, token } = this.props
+    const { visible } = this.state;
+    console.log(this.props)
 		return (
 			<React.Fragment>
 				<div className="main-header">
@@ -68,10 +89,12 @@ class Header extends React.PureComponent {
 								))}
 							</ul>
 						</div>
-						<LoginHeader showModal={this.showModal} />
+            {
+              this.renderUser()
+            }
 					</div>
 				</div>
-        <LoginModal visible={visible} confirm={this.confirm} onClose={this.closeModal}/>
+        <LoginModal visible={visible} confirm={this.confirm} onClose={this.closeModal} login={login} token={token}/>
 				{this.props.children}
 			</React.Fragment>
 		);
