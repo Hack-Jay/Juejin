@@ -1,4 +1,5 @@
 import React from 'react';
+import { timeFormat } from '../../util'
 import './index.less';
 
 // question：数据嵌套多层拿不到， 如a.b.c.e
@@ -9,7 +10,7 @@ const PostDetail = ({ data, userInfo }) => (
 			<div className="user-info">
 				<span className="user-name-text ellipsis">{userInfo.username}</span>
 				<div className="user-info-time">
-					<span className="user-info-createtime">{data.info.createdAt}</span>
+					<span className="user-info-createtime">{ timeFormat(data.info.createdAt) }</span>
 					<span className="user-info-read">阅读 {data.info.viewsCount}</span>
 				</div>
 			</div>

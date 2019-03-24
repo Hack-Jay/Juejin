@@ -1,4 +1,5 @@
 import React from 'react'
+import { timeFormat } from '../../../util'
 import "./index.less"
 
 const CommentListItem =  ({comment, child}) => {
@@ -21,11 +22,11 @@ const CommentListItem =  ({comment, child}) => {
           <span>{comment.content}</span>
         </div>
         <div className="user-comment-time">
-          <span className="user-time">{updatedAt}</span>
+          <span className="user-time">{ timeFormat(updatedAt) }</span>
           <div className="flex">
               <i className="iconfont left">&#xe60c;</i>
               <i className="iconfont">&#xe631;</i>
-              <span>回复</span>
+              <span class="reply">回复</span>
           </div>
         </div>
       </div>

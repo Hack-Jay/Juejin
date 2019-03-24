@@ -1,4 +1,5 @@
 import React from 'react';
+import { timeFormat } from '../../../util'
 import './index.less';
 
 const TimelineEntryListItem = ({ item }) => (
@@ -10,7 +11,7 @@ const TimelineEntryListItem = ({ item }) => (
             <li className="item-hot">热</li>
             <li className="item-post">专栏</li>
             <li className="item-username">{item.user.username}</li>
-            <li className="item-time">2个小时前</li>
+            <li className="item-time">{ timeFormat(item.createdAt) }</li>
             <li className="item-tag">{item.category.name}</li>
           </ul>
         </div>
