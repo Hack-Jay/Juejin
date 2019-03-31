@@ -1,38 +1,29 @@
-const merge = require('webpack-merge');
-const baseConfig = require('./webpack.base.config');
-const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
+const path = require("path")
+const webpack = require('webpack')
+const merge = require('webpack-merge')
+const HtmlPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
+const baseConfig = require('./webpack.base.config')
 
-module.exports = merge(baseConfig, {
+const config = merge(baseConfig, {
   mode: 'production',
-  optimization: {
-    minimizer: [
-      new UglifyJsPlugin({
-        cache: true,
-        parallel: true,
-        sourceMap: true
-      }),
-      new OptimizeCSSAssetsPlugin({}) // use OptimizeCSSAssetsPlugin
-    ],
-    runtimeChunk: {
-      name: "manifest"
-    },
-    splitChunks: {
-      cacheGroups: {
-        vendor: {
-          test: /[\\/]node_modules[\\/]/,
-          name: "vendors",
-          priority: -20,
-          chunks: "all"
-        }
-      }
-    }
-  },
+  devtool: 'source-map',
   plugins: [
+    new HtmlPlugin({
+      template: path.join(__dirname, "../src/index.html"),
+      // favicon: '../src/favicon.ico'
+    }),
     new MiniCssExtractPlugin({
-      filename: '[name].[contenthash:12].css',
-      chunkFilename: '[name].[contenthash:12].css' // use contenthash *
-    })
+      filename: "[name].css",
+      chunkFilename: "[id].css"
+    }),
+    new webpack.DefinePlugin({
+      'process.env': {
+        NODE_ENV: JSON.stringify('production')
+      }
+    }),
   ]
-});
+})
+
+
+module.exports = config
