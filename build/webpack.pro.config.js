@@ -6,6 +6,10 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const baseConfig = require('./webpack.base.config')
 
 const config = merge(baseConfig, {
+  entry: {
+    app:  path.join(__dirname, '../src', 'index'),
+    // 'vendor': ['react', 'react-dom']
+  },
   mode: 'production',
   devtool: 'source-map',
   plugins: [

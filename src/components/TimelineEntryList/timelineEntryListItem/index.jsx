@@ -1,6 +1,7 @@
 import React from 'react';
 import { timeFormat } from '../../../util'
 import './index.less';
+import Alike from '../../Alike'
 
 const TimelineEntryListItem = ({ item }) => (
 	<div className="entry-link">
@@ -20,12 +21,13 @@ const TimelineEntryListItem = ({ item }) => (
         </a>
         <div className="action-row">
           <ul>
-            <li className="like-btn">
+            <Alike count={item.collectionCount} like={item.isCollected} />
+            {/* <li className="like-btn">
               <a>
                 <img src="https://b-gold-cdn.xitu.io/v3/static/img/zan.e9d7698.svg" alt="" />
                 <span className="like-text">{item.collectionCount}</span>
               </a>
-            </li>
+            </li> */}
             <li className="comment-btn">
               <a>
                 <img src="https://b-gold-cdn.xitu.io/v3/static/img/comment.4d5744f.svg" alt="" />
