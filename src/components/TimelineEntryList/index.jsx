@@ -2,7 +2,7 @@ import React from 'react';
 import * as PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom'
 import TimelineEntryListItem from './timelineEntryListItem';
-import urlParse from '../../util'
+import { urlParse } from '../../util'
 import './index.less';
 
 class TimelineEntryList extends React.Component {
